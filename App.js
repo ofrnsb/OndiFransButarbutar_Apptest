@@ -11,6 +11,8 @@ import React from 'react';
 import {SafeAreaView, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {Provider} from 'react-redux';
+import {store} from './vendor/bundle/ruby/2.7.0/src/reducer/store';
 import RootApp from './vendor/bundle/ruby/2.7.0/src/views/rootApp';
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
@@ -24,9 +26,11 @@ const App: () => Node = () => {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <RootApp />
-    </SafeAreaView>
+    <Provider store={store}>
+      <SafeAreaView style={backgroundStyle}>
+        <RootApp />
+      </SafeAreaView>
+    </Provider>
   );
 };
 
