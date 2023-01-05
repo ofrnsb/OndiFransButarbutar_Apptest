@@ -68,7 +68,16 @@ const FirstScreen = () => {
                 />
                 <ButtonHighlight
                   children={'Delete'}
-                  onPress={() => onDelete(data.id)}
+                  onPress={() =>
+                    Alert.alert('Alert Title', 'My Alert Msg', [
+                      {
+                        text: 'Cancel',
+                        onPress: () => console.log('Cancel Pressed'),
+                        style: 'cancel',
+                      },
+                      {text: 'OK', onPress: () => onDelete(data.id)},
+                    ])
+                  }
                 />
               </View>
             </View>
@@ -79,7 +88,6 @@ const FirstScreen = () => {
                 transparent={true}
                 onRequestClose={() => {
                   Alert.alert('Modal has been closed.');
-                  // setModalVisible(!modalVisible);
                 }}>
                 <EditComponent
                   onChange={(payload, editType) =>

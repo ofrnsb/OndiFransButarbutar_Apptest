@@ -33,11 +33,12 @@ const customHooks = () => {
       });
       onFetch();
     } catch (error) {
-      alert(error);
+      alert('somehow this API doesnt work');
     }
   };
 
   onDelete = async id => {
+    console.log(id);
     try {
       await axios.delete(`${BaseUrl}/contact/${id}`);
       onFetch();
